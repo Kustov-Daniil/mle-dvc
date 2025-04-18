@@ -2,7 +2,10 @@
 /tmp
 /cache
 /config
+<<<<<<< HEAD
 
 .enva
 .env
 .env_template
+=======
+>>>>>>> 0793ef3 (Задание only_sklearn_pipeline)
