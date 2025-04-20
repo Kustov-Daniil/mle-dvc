@@ -1,0 +1,8 @@
+/config.local
+/tmp
+/cache
+/config
+
+.enva
+.env
+.env_template
