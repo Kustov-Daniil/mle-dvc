@@ -40,18 +40,20 @@ def fit_model():
         ]
     )
 
+    model = LogisticRegression(**model_params, random_state=random_state, verbose=0)
+    
     # Создание pipeline
-    clf = Pipeline(steps=[
+    pipeline = Pipeline(steps=[
         ("preprocessor", preprocessor),
-        ("classifier", LogisticRegression(**model_params, random_state=random_state, verbose=0))
+        ("model", model)
     ])
 
     # Обучение модели
-    clf.fit(X, y)
+    pipeline.fit(X, y)
 
     # Сохранение модели
     os.makedirs("models", exist_ok=True)
-    joblib.dump(clf, os.path.join("models/fitted_model.pkl"))
+    joblib.dump(pipeline, os.path.join("models/fitted_model.pkl"))
 
 
 if __name__ == '__main__':
