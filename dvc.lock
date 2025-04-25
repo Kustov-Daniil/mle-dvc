@@ -10,6 +10,7 @@ stages:
     params:
       params.yaml:
         index_col: customer_id
+        retrain: 'True'
     outs:
     - path: data/initial_data.csv
       hash: md5
@@ -37,6 +38,7 @@ stages:
         index_col: customer_id
         one_hot_drop: if_binary
         penalty: ’l2’
+        retrain: 'True'
         target_col: target
     outs:
     - path: models/fitted_model.pkl
@@ -66,13 +68,10 @@ stages:
         - roc_auc
         n_jobs: -1
         n_splits: 5
+        retrain: 'True'
         target_col: target
     outs:
     - path: cv_results/cv_res.json
       hash: md5
-      md5: 3de02b0269f9b0e9547fd5a0e9926bb5
+      md5: f32733338b58000fdb0e2c1affc18657
       size: 142
-      cloud:
-        my_storage:
-          etag: 3de02b0269f9b0e9547fd5a0e9926bb5
-          version_id: 000633A0CC69D231
